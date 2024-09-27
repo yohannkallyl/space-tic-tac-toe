@@ -4,11 +4,12 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    cursor: url("assets/hand-pointer.svg"), auto;
+    
 }
 
 html, body{
     height: 100%;
+    
 }
 
 body{
@@ -18,6 +19,7 @@ body{
     height: 100vh;
     margin: 0;
     overflow: hidden; 
+    
      
     
 }
@@ -155,7 +157,6 @@ span:nth-child(10){
     font-family: "Indie Flower";
     text-align: center;
     color: white    ;
-    
 }
 
 .cellContainer{
@@ -164,7 +165,6 @@ span:nth-child(10){
     width: 301px;
     margin: auto;
     box-shadow: -20px 13px 0 2px #ffffffb9/*After I change*/
-    
 }
 
 .cell{
@@ -174,8 +174,6 @@ span:nth-child(10){
     line-height: 75px;
     font-size: 50px;
     color: white;
-    
-
 }
 
 #statusText{
@@ -186,6 +184,24 @@ span:nth-child(10){
 #restartBtn{
     width: 100px;
     height: 50px;
+}
+
+#restartBtn:hover{
+    cursor: pointer;
+}
+
+
+/* Cursors */
+.hand-pointer{
+    cursor: url("assets/hand-pointer.svg"), auto;
+}
+
+.x-cursor{
+    cursor: url("assets/x-cursor.svg"), auto;
+}
+
+.circle-cursor{
+    cursor: url("assets/circle-cursor.svg"), auto;
 }
 
 /* Animation Space Background */

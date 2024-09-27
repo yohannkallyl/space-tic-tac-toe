@@ -1,7 +1,10 @@
 //Variables 
+const body = document.body
 const cells = document.querySelectorAll(".cell")
 const statusText = document.querySelector("#statusText")
 const restartBtn = document.querySelector("#restartBtn")
+
+body.classList.add("x-cursor")
 
 const winConditions = [
     
@@ -28,7 +31,7 @@ let running = false
 
 initializeGame()
 
-//Functions
+//Functions 
 
 function initializeGame(){
     cells.forEach(cell => cell.addEventListener("click", cellClicked)) //remember that "forEach" does not return a new array
@@ -55,7 +58,16 @@ function updateCell(cell, index){
 }
 
 function changePlayer(){
-    currentPlayer = (currentPlayer === "X") ? "O" : "X"
+    if(currentPlayer === "X"){
+        currentPlayer = "O"
+        body.classList.remove("hand-pointer")
+        body.classList.add("circle-cursor")
+    } else{
+        currentPlayer = "X"
+        body.classList.remove("circle-cursor")
+        body.classList.add("x-cursor")
+    }
+    
     statusText.textContent = `${currentPlayer} 's turn`
 }
 
