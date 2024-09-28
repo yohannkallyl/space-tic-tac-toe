@@ -9,6 +9,7 @@
 
 html, body{
     height: 100%;
+    width: 100%;
     
 }
 
@@ -16,24 +17,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden; 
-    
-     
-    
+    min-height: 100vh;
+    font-family: "Indie Flower";
+    color: white;
+    position: relative;
 }
 
 /* Background settings */
 section{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background: url(assets/bg-space.jpg);
-    background-position-x: center;
-    background-size: cover;
+    height: 100%;
+    background: url(assets/bg-space.jpg) center/cover no-repeat;
     animation: animateBg 50s linear infinite;
     z-index: 1;
 }
@@ -146,70 +143,100 @@ span:nth-child(10){
 
 /* Tic Tac Toe Game */
 
-#title{
-    color: white;
-    text-align: center;
-}
-
 .gameContainer{
     position: relative;
     z-index: 2;
-    font-family: "Indie Flower";
     text-align: center;
-    color: white    ;
+    padding: 20px;
+    max-width: 100%; /*Previne que o container seja maior que a viewport*/
+}
+
+#title{
+    font-size: 2rem; /* vai me ajudar na responsividade*/
+    margin-bottom: 20px;
 }
 
 .cellContainer{
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    width: 301px;
+    grid-template-columns: repeat(3, minmax(60px, 100px)); /*Responsividade nas células*/
+    max-width: 300px;
     margin: auto;
     box-shadow: -20px 13px 0 2px #ffffffb9/*After I change*/
 }
 
 .cell{
-    width: 100px;
-    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    aspect-ratio: 1 / 1; /*Vai manter a proporção de "frame" das células. Ou seja, vai fazer com que eles continuem quadradas*/
+    
     border: 2px solid white;
-    line-height: 75px;
-    font-size: 50px;
-    color: white;
+    font-size: 4rem;
 }
 
 #statusText{
     margin-top: 20px;
-    color: white;
+    font-size: 1.5rem;
 }
 
 #restartBtn{
-    width: 100px;
-    height: 50px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: rgba(6, 37, 173, 0.719);
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid black;
+    transition: background-color 0.3s;
+    
+    
 }
 
 #restartBtn:hover{
-    cursor: pointer;
+    background-color: rgba(33, 12, 226, 0.5);
 }
 
 
 /* Cursors */
-.hand-pointer{
-    cursor: url("assets/hand-pointer.svg"), auto;
+.hand-pointer{ cursor: url("assets/hand-pointer.svg"), auto;}
+
+.x-cursor{ cursor: url("assets/x-cursor.svg"), auto;}
+
+.circle-cursor{ cursor: url("assets/circle-cursor.svg"), auto;}
+
+/* Media Query's */
+@media(min-width:319px) and (max-width:480px){ /*Mobile*/    
+    #title{ font-size: 2rem;}
+    
+    .cell{ font-size: 3.5rem;}
+    
+    #statusText{ font-size: 2rem;} 
+  } 
+
+@media(min-width:481px) and (max-width:1200px){ /*iPads and Tablets*/
+  
 }
 
-.x-cursor{
-    cursor: url("assets/x-cursor.svg"), auto;
+    
+@media(min-width:1201px) and (max-width: 1600px){ /* Laptops */
+
+}
+      
+     
+@media(min-width:1601){  /* Desktops */
 }
 
-.circle-cursor{
-    cursor: url("assets/circle-cursor.svg"), auto;
-}
+
 
 /* Animation Space Background */
 
 @keyframes animateBg{
     0%, 100%{
         transform: scale(1);
-    }
+}
     50%{
         transform: scale(1.2);
     }
