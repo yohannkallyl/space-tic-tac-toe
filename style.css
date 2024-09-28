@@ -216,21 +216,6 @@ span:nth-child(10){
     #statusText{ font-size: 2rem;} 
   } 
 
-@media(min-width:481px) and (max-width:1200px){ /*iPads and Tablets*/
-  
-}
-
-    
-@media(min-width:1201px) and (max-width: 1600px){ /* Laptops */
-
-}
-      
-     
-@media(min-width:1601){  /* Desktops */
-}
-
-
-
 /* Animation Space Background */
 
 @keyframes animateBg{
